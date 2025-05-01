@@ -4,27 +4,27 @@ public class Duplicates
 {
     public bool ContainsDuplicate(int[] nums) //this works but on large arrays it's terrible O(n^2)
     {
-        for (int i = 0; i < nums.Length; i++)
+        for (int i = 0; i < nums.Length; i++) //outer loop with 1 pointer starting at the beginning and working forward
         {
-            for (int j = nums.Length - 1; j > i; j--)
+            for (int j = nums.Length - 1; j > i; j--)//inner loop with 2nd pointer starting at the end and working backwards
             {
-                if (nums[i] == nums[j])
+                if (nums[i] == nums[j])//compare the values at each pointer
                 {
-                    return true;
+                    return true;//if they match return true
                 }
             }
         }
         return false;
     }
-    public bool ContainsDuplicate2(int[] nums) 
+    public bool ContainsDuplicate2(int[] nums)  //this one is better for large arrays  O(n)
     {
-        Array.Sort(nums);
+        Array.Sort(nums); //sort the array so we can compare adjacent elements
     
-        for (int i = 0; i < nums.Length - 1; i++)
+        for (int i = 0; i < nums.Length - 1; i++)//only need 1 loop and one pointer
         {
-            if (nums[i] == nums[i + 1])
+            if (nums[i] == nums[i + 1]) // compare i with next element
             {
-                return true;
+                return true; //if they match return true
             }
         }
         return false;
@@ -43,7 +43,6 @@ public class Duplicates
                 nums[uniqueIndex] = nums[i]; //copy i to unique element to compare with next element
             }
         }
-        
         return uniqueIndex + 1; //count of each unique element in the array
     }
 }
