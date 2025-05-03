@@ -27,5 +27,28 @@ public class Solutions
         return -1;
     }
 
+    public void FizzBuzz(int num)
+    {
+        for (int i = 1; i <= num; i++)
+        {
+            if (num % 3 == 0 && num % 5 == 0)
+            {
+                Console.WriteLine("FizzBuzz");
+            }
+
+            if (num % 3 == 0 && num % 5 != 0)
+            {
+                Console.WriteLine("Fizz");
+            }
+            if (num % 3 != 0 && num % 5 == 0)
+            {
+                Console.WriteLine("Buzz");
+            }
+            else
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
     
 }

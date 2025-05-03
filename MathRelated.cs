@@ -43,6 +43,7 @@ public class MathRelated
         long left = 1;
         long possibleAnswer = 0;
         long right = x;
+        Math.Sqrt(x);
 
         while (left <= right)
         {
