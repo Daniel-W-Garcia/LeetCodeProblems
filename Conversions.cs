@@ -104,4 +104,35 @@ public class Conversions
         }
         return total;
     }
+    
+    // take a number and convert it to binary
+    // count the '1' char in the binary string
+    // return the count of "1's" 
+    public int HammingWeight(int inputNumber) 
+    {
+        string binary = Convert.ToString(inputNumber, 2); //built in method to convert from one base type to another
+        int count = 0;
+        foreach (char c in binary)
+        {
+            if (c == '1')
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    // check if a number is a power of 2
+    public bool IsPowerOfTwo(int n) 
+    {
+        //this is super clever. it's bitwise ANDing the number with the number minus 1
+        //since binary is base to any digigit that is 1 with nothing but a zero after it is a power of 2
+        //so when you subtract 1 from the number, you get the number with the last bit set to 0
+        //so you subtract the input from the -1 and will be 0 if the number is a power of 2
+        return n > 0 && (n & (n - 1)) == 0; //the bitwise & operator compares the binary representation of the two numbers
+        /*     0000 0101   (5)
+            &  0000 0011   (3)
+               ---------------
+               0000 0001   (1)*/
+    }
 }
