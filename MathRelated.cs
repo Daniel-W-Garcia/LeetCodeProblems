@@ -123,4 +123,36 @@ public class MathRelated
         Console.WriteLine(string.Join("", charArray));
         return new string(charArray);
     }
+    public int ClimbStairs(int n) // this is a fibonacci sequence solution
+    {
+        // Handle base cases
+        if (n <= 0) return 0;
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+    
+        // Initialize variables to track ways for previous steps
+        int oneStepBefore = 2;  // ways to reach step 2
+        int twoStepsBefore = 1; // ways to reach step 1
+        int currentWays = 0;
+    
+        // Calculate ways for each step from 3 to n
+        for (int i = 3; i <= n; i++)
+        {
+            // Ways to reach current step = ways to reach previous step + ways to reach 2 steps back
+            currentWays = oneStepBefore + twoStepsBefore; //temp = a + b
+        
+            // Update values for next iteration
+            twoStepsBefore = oneStepBefore; // a = b shuffle so 2nd number becomes 1st number
+            oneStepBefore = currentWays; // b = temp shuffle the sum of the last 2 numbers to the 2nd number and go again
+        }
+        /*for (int i = 2; i <= n; i++) this is the fibonacci sequence solution which we're using above
+        {
+            temp = a + b;
+            a = b;
+            b = temp;
+        }*/
+
+    
+        return currentWays;
+    }
 }
