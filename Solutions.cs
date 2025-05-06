@@ -2,26 +2,26 @@
 
 public class Solutions
 {
-    Dictionary<int, int> d = new Dictionary<int, int>(); //create a dicitonary to hold duplicates
+    Dictionary<int, int> dictionaryToEvaluate = new Dictionary<int, int>(); //create a dicitonary to hold duplicates
     public int SingleNumber(int[] nums) 
     {
         foreach(int item in nums)
         {
-            if (d.ContainsKey(item)) //check if the dictionary contains the item
+            if (dictionaryToEvaluate.ContainsKey(item)) //check if the dictionary contains the item
             {
-                d[item]++; //if it does increment the value by 1 for that item
+                dictionaryToEvaluate[item]++; //if it does increment the value by 1 for that item
             }
             else
             {
-                d.Add(item, 1); //if it doesn't add the item to the dictionary with a value of 1
+                dictionaryToEvaluate.Add(item, 1); //if it doesn't add the item to the dictionary with a value of 1
             }
         }
 
-        foreach (var pair in d) //look at the kvps in the dictionary
+        foreach (var pair in dictionaryToEvaluate) //look at the kvps in the dictionary
         {
             if (pair.Value == 1) // if an item has a value of 1
             {
-                return pair.Key; //return the item. this gives us all unique items in the array
+                return pair.Key; //return the item. this gives us all unique items in the arra
             }
         }
         return -1;

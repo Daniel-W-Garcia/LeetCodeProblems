@@ -135,4 +135,10 @@ public class Conversions
                ---------------
                0000 0001   (1)*/
     }
+
+    public void Results(out int sum, out int product, params int[] c)
+    {
+        product = 1;
+        sum = 0;
+    }
 }

@@ -14,35 +14,35 @@ public class Palindromes
         }
         return true;    
     }
-    public bool IsPalindrome2(int x) //this one is neat but hard to understand for me
+    public bool IsPalindrome2(int intToTest) //this one is neat but hard to understand for me
     {
         // Negative numbers can't be palindromes
-        if (x < 0)
+        if (intToTest < 0)
             return false;
         
         // Special case: single digit numbers are always palindromes
-        if (x >= 0 && x < 10)
+        if (intToTest >= 0 && intToTest < 10)
             return true;
         
         // If number ends with 0, it can't be a palindrome unless it's 0 itself
-        if (x % 10 == 0 && x != 0)
+        if (intToTest % 10 == 0 && intToTest != 0)
             return false;
     
         int reversed = 0; 
-        int original = x;
+        int original = intToTest;
     
         // Reverse the integer gonna use 121 to track what's happening
-        while (x > 0) // runs 3 times until the 3rd loop when x = 0
+        while (intToTest > 0) // runs 3 times until the 3rd loop when intToTest = 0
         {
-            int digit = x % 10; // first loop: x = 121 % 10 so digit is 1
-                                // second loop: x = 12 % 10 so digit is 2
-                                // third loop: x = 1 % 10 so digit is 1
+            int digit = intToTest % 10; // first loop: intToTest = 121 % 10 so digit is 1
+                                // second loop: intToTest = 12 % 10 so digit is 2
+                                // third loop: intToTest = 1 % 10 so digit is 1
                         
             reversed = reversed * 10 + digit; // first loop: 0 * 10 + 1 = 1
                                               // second loop: 1 * 10 + 2 = 12
                                               // third loop: 12 * 10 + 1 = 121
                                             
-            x /= 10; // first loop: 121 / 10 = 12
+            intToTest /= 10; // first loop: 121 / 10 = 12
                      // second loop: 12 / 10 = 1
                      // third loop: 1 / 10 = 0
         }
