@@ -155,4 +155,43 @@ public class MathRelated
     
         return currentWays;
     }
+    
+    
+    // Take an int, parse to individual nums. 
+    // Add nums together
+    // if sum is > 8 repeat steps 1 and 2
+    // return the sum once it's < 9
+    // func int Add(int i)
+    //  {
+    //      var sum = 0; 
+    //      char[] of parsed int 
+    //      for (int i = 0; i < parsed int.length; i++)
+    //      sum = sum + i
+    //          if (sum > 8)
+    //          return Add(sum)
+    //      else
+    //      return sum
+    public int AddDigits(int num) // LeetCode 258 
+    {
+        int sum = 0;
+        char[] digits = num.ToString().ToCharArray();
+
+        if (num < 10 && num > 0)
+        {
+            return num;
+        }
+
+        for (int i = 0; i < digits.Length; i++)
+        {
+            sum += digits[i] - '0';
+        }
+        if (sum > 9)
+        {
+            return AddDigits(sum);
+        }
+        else
+        {
+            return sum;
+        }
+    }
 }
